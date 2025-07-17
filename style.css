@@ -1,0 +1,84 @@
+/* style.css – Custom enhancements for InnoBot SDG 9 Chatbot */
+
+/* Smooth page load */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-in-out;
+}
+
+/* Chat bubbles */
+.chat-bubble {
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Typing loader animation like a futuristic interface */
+#typing::after {
+  content: '⏳';
+  animation: dots 1.2s steps(3, end) infinite;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+@keyframes dots {
+  0% { content: '⏳'; }
+  33% { content: '⏳.'; }
+  66% { content: '⏳..'; }
+  100% { content: '⏳...'; }
+}
+
+/* Scrollbar styling */
+#chatBox::-webkit-scrollbar {
+  width: 8px;
+}
+#chatBox::-webkit-scrollbar-track {
+  background: #fef3c7;
+  border-radius: 8px;
+}
+#chatBox::-webkit-scrollbar-thumb {
+  background-color: #fb923c;
+  border-radius: 8px;
+}
+
+/* Responsive fallback */
+@media (max-width: 640px) {
+  #userInput {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .chat-bubble {
+    font-size: 0.9rem;
+  }
+}

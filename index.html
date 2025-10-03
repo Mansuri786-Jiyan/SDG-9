@@ -1,38 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InnoBot – SDG 9 AI Assistant</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
-
-<body class="bg-gradient-to-br from-orange-50 to-yellow-100 text-gray-900 min-h-screen">
-  <header class="bg-orange-600 text-white py-5 text-center shadow-lg animate-fade-in">
-    <h1 class="text-3xl font-bold tracking-wide">InnoBot</h1>
-    <p class="text-sm mt-1 italic">Smart Chatbot for Innovation & Infrastructure • SDG 9</p>
+<body class="overflow-hidden">
+  <!-- Header -->
+  <header class="header-gradient text-white py-6 px-4 shadow-lg">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-3">
+            <span class="icon-bounce">🤖</span>
+            InnoBot
+          </h1>
+          <p class="text-sm md:text-base mt-1 opacity-90">Smart AI Assistant for Innovation & Infrastructure • SDG 9</p>
+        </div>
+        <button id="clearChat" class="new-chat-btn px-4 py-2 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 font-semibold text-sm backdrop-filter backdrop-blur-sm">
+          ✨ New Chat
+        </button>
+      </div>
+    </div>
   </header>
 
-  <main id="chatBox" class="max-w-3xl mx-auto px-4 py-6 h-[70vh] overflow-y-auto flex flex-col space-y-2 bg-white rounded-xl shadow-inner mt-4 border border-orange-200 animate-fade-in">
-    <!-- Messages will appear here -->
+  <!-- Chat Container -->
+  <main class="max-w-4xl mx-auto px-4 py-4">
+    <div id="chatBox" class="chat-container overflow-y-auto px-2 space-y-4">
+      <!-- Messages will appear here -->
+    </div>
   </main>
 
-  <footer class="fixed bottom-0 left-0 w-full bg-orange-50 shadow-inner py-4 px-4 border-t border-orange-200">
-    <div class="max-w-3xl mx-auto flex items-center gap-3">
-      <input type="text" id="userInput" placeholder="Ask about innovation, industry, or infrastructure..."
-        class="flex-1 p-3 rounded-lg border-2 border-orange-300 focus:outline-none focus:ring focus:ring-orange-200 text-sm" />
-      <button onclick="sendMessage()"
-        class="bg-orange-600 text-white px-5 py-2 rounded-lg hover:bg-orange-700 font-semibold transition duration-200">Send</button>
-      <button id="clearChat" class="text-orange-500 text-sm hover:underline">New Chat</button>
+  <!-- Input Area -->
+  <footer class="fixed bottom-0 left-0 w-full input-container py-4 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div id="typingIndicator" class="typing-indicator text-orange-600 text-sm mb-2 ml-2 hidden flex items-center gap-2">
+        <div class="avatar avatar-bot">🤖</div>
+        <span class="font-medium">InnoBot is thinking</span>
+      </div>
+      <div class="flex items-end gap-3">
+        <div class="flex-1 glass-effect rounded-2xl p-1">
+          <textarea 
+            id="userInput" 
+            placeholder="Ask about innovation, industry, or infrastructure..." 
+            rows="1"
+            class="w-full px-4 py-3 bg-transparent resize-none focus:outline-none text-gray-800 placeholder-gray-400"
+            style="max-height: 120px;"
+          ></textarea>
+        </div>
+        <button 
+          id="sendBtn"
+          class="send-btn text-white p-4 rounded-2xl font-semibold shadow-lg flex items-center justify-center"
+          style="min-width: 56px; height: 56px;"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+      <p class="text-xs text-gray-500 text-center mt-2">Powered by Gemini AI • Press Enter to send</p>
     </div>
-    <div id="typing" class="text-center text-sm mt-2 hidden text-orange-700 font-medium animate-pulse">🤖 InnoBot is thinking<span></span></div>
   </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
